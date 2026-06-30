@@ -1,0 +1,334 @@
+/* ==========================================================================
+   login.css — Styles untuk halaman login SIMPEG PT Nusantara Jaya
+   Redesigned to match the reference split layout
+   ========================================================================== */
+@import url('./variables.css');
+
+* {
+  box-sizing: border-box;
+}
+
+body.login-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10, 22, 40, 0.8) 0%, rgba(10, 22, 40, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Main Container */
+.login-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  padding: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Left Section: Typography */
+.login-left {
+  flex: 1;
+  color: #ffffff;
+  animation: fadeInLeft 0.8s ease backwards;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.login-brand i {
+  font-size: 32px;
+}
+
+.login-hero-title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-hero-desc {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  opacity: 0.9;
+}
+
+.login-hero-subdesc {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.7;
+  max-width: 440px;
+  margin: 0;
+}
+
+/* Right Section: Login Card */
+.login-right {
+  flex: 0 0 380px;
+  animation: fadeInRight 0.8s ease backwards;
+  animation-delay: 0.2s;
+}
+
+.login-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styles */
+.login-field {
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #ffffff;
+  color: #333333;
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.login-field input:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 24px;
+}
+
+.forgot-password a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #3b82f6; /* Blue like the reference */
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.login-btn:hover {
+  background: #2563eb;
+}
+
+.login-divider-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.login-divider-text::before,
+.login-divider-text::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-divider-text span {
+  padding: 0 10px;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.google-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.google-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.demo-box {
+  margin-top: 24px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.demo-box .label {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.demo-box code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Error/Success elements */
+.login-error {
+  background: rgba(220, 38, 38, 0.8);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: white;
+}
+
+.login-error.show {
+  display: flex;
+}
+
+.login-success-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 163, 74, 0.3);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.login-success-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.check-icon {
+  font-size: 48px;
+  color: white;
+}
+
+/* Loader */
+.login-btn .spinner { display: none; }
+.login-btn.loading .spinner { display: block; }
+.login-btn.loading .btn-text { display: none; }
+.login-btn.loading .btn-loading-text { display: inline; }
+.btn-loading-text { display: none; }
+
+/* Animations */
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+    padding: 24px;
+    gap: 40px;
+  }
+  .login-left {
+    text-align: center;
+    max-width: 100%;
+  }
+  .login-brand {
+    justify-content: center;
+  }
+  .login-hero-subdesc {
+    margin: 0 auto;
+  }
+  .login-right {
+    flex: auto;
+    width: 100%;
+    max-width: 420px;
+  }
+}
