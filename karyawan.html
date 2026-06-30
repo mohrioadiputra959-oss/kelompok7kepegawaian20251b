@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal Karyawan SIMPEG PT Nusantara Jaya — Absensi, pengajuan cuti, dan informasi kepegawaian.">
+  <title>Portal Karyawan — SIMPEG PT Nusantara Jaya</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/karyawan.css">
+</head>
+<body class="app-layout" data-theme="light">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i data-lucide="building-2"></i></div>
+        <div class="sidebar-brand-text">
+          <h2>PT <span class="gold">Nusantara</span> Jaya</h2>
+          <span>SIMPEG v2.0</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-label">Menu Utama</div>
+
+      <button class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+        <span class="nav-item-icon"><i data-lucide="layout-dashboard"></i></span>
+        <span>Dashboard</span>
+      </button>
+
+      <button class="nav-item" data-page="absensi" onclick="navigateTo('absensi')">
+        <span class="nav-item-icon"><i data-lucide="calendar"></i></span>
+        <span>Absensi Hari Ini</span>
+      </button>
+
+      <button class="nav-item" data-page="riwayat-absensi" onclick="navigateTo('riwayat-absensi')">
+        <span class="nav-item-icon"><i data-lucide="clipboard-list"></i></span>
+        <span>Riwayat Absensi</span>
+      </button>
+
+      <div class="sidebar-nav-label">Cuti</div>
+
+      <button class="nav-item" data-page="ajukan-cuti" onclick="navigateTo('ajukan-cuti')">
+        <span class="nav-item-icon"><i data-lucide="umbrella"></i></span>
+        <span>Ajukan Cuti</span>
+      </button>
+
+      <button class="nav-item" data-page="riwayat-cuti" onclick="navigateTo('riwayat-cuti')">
+        <span class="nav-item-icon"><i data-lucide="file-text"></i></span>
+        <span>Riwayat Cuti</span>
+      </button>
+
+      <div class="sidebar-nav-label">Akun</div>
+
+      <button class="nav-item" data-page="profil" onclick="navigateTo('profil')">
+        <span class="nav-item-icon"><i data-lucide="user"></i></span>
+        <span>Profil Saya</span>
+      </button>
+
+      <button class="nav-item" data-page="ganti-password" onclick="navigateTo('ganti-password')">
+        <span class="nav-item-icon"><i data-lucide="lock"></i></span>
+        <span>Ganti Password</span>
+      </button>
+    </nav>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <button class="sidebar-logout" onclick="handleLogout()">
+        <span class="nav-item-icon"><i data-lucide="log-out"></i></span>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===================== SIDEBAR OVERLAY (Mobile) ===================== -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <div class="main-wrapper">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()"><i data-lucide="menu"></i></button>
+        <div class="topbar-title-wrapper">
+          <p class="topbar-subtitle" id="topbarSubtitle">Welcome back, Karyawan 👋</p>
+          <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-search-btn" id="topbarSearchBtn"><i data-lucide="search"></i></button>
+        <button class="topbar-theme-toggle" id="topbarThemeToggle" onclick="toggleTheme()"><i data-lucide="moon"></i></button>
+        <button class="notif-btn" onclick="toggleNotifPanel()">
+          <i data-lucide="bell"></i>
+          <span class="notif-badge" id="notifBadge" style="display:none">0</span>
+        </button>
+        <div class="topbar-profile" style="display: flex; align-items: center; gap: 6px; padding: 2px 10px 2px 2px; border-radius: 9999px; cursor: pointer;">
+          <div class="topbar-avatar" id="topbarAvatar"></div>
+          <span style="font-size: 11px; font-weight: 700; color: var(--color-text-primary);">Karyawan</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Notification Panel -->
+    <div class="notif-panel hidden" id="notifPanel"></div>
+
+    <!-- Page Content (SPA renders here) -->
+    <main class="page-content" id="pageContent">
+      <!-- Konten dimuat via JavaScript -->
+    </main>
+  </div>
+
+  <!-- ===================== Toast Container ===================== -->
+  <div id="toastContainer"></div>
+
+  <!-- ===================== Scripts ===================== -->
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/karyawan.js"></script>
+</body>
+</html>

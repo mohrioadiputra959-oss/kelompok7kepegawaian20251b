@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login ke SIMPEG PT Nusantara Jaya — Sistem Informasi Kepegawaian modern dan aman.">
+  <title>Login — SIMPEG PT Nusantara Jaya</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page" data-theme="light">
+
+  <!-- ===================== Background Overlay ===================== -->
+  <div class="login-bg-overlay"></div>
+
+  <!-- ===================== Main Container ===================== -->
+  <div class="login-container">
+    
+    <!-- Left Section: Info & Branding -->
+    <div class="login-left">
+      <div class="login-brand">
+        <i data-lucide="building-2"></i>
+        <span>SIMPEG</span>
+      </div>
+      <h1 class="login-hero-title">SISTEM<br>INFORMASI<br>KEPEGAWAIAN</h1>
+      <p class="login-hero-desc">
+        Dimana manajemen SDM yang profesional menjadi kenyataan.
+      </p>
+      <p class="login-hero-subdesc">
+        Kelola data pegawai, absensi, dan performa dalam satu platform terpadu. Seluruh kebutuhan HRD Anda dalam jangkauan.
+      </p>
+    </div>
+
+    <!-- Right Section: Login Card -->
+    <div class="login-right">
+      <div class="login-card" id="loginCard">
+        <!-- Success Overlay -->
+        <div class="login-success-overlay" id="loginSuccessOverlay">
+          <span class="check-icon"><i data-lucide="check-circle-2"></i></span>
+        </div>
+
+        <!-- Error Message -->
+        <div class="login-error" id="loginError">
+          <span><i data-lucide="alert-triangle"></i></span>
+          <span class="error-text">Username atau password salah.</span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <!-- Username Field -->
+          <div class="login-field">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Masukkan username" autocomplete="username" required>
+          </div>
+
+          <!-- Password Field -->
+          <div class="login-field">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" placeholder="••••••••••••" autocomplete="current-password" required>
+              <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password', this)"><i data-lucide="eye"></i></button>
+            </div>
+          </div>
+          
+          <div class="forgot-password">
+            <a href="#">Lupa password?</a>
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit" class="login-btn" id="loginBtn">
+            <div class="spinner"></div>
+            <span class="btn-text">MASUK</span>
+            <span class="btn-loading-text">Memverifikasi...</span>
+          </button>
+          
+          <div class="login-divider-text"><span>atau</span></div>
+          
+          <button type="button" class="google-btn">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo">
+            <span>Masuk dengan Google</span>
+          </button>
+        </form>
+
+        <!-- Demo Credentials -->
+        <div class="demo-box">
+          <div class="label">Demo Credentials</div>
+          <div>
+            Admin: <code>admin</code> / <code>admin123</code><br>
+            Karyawan: <code>budi.santoso</code> / <code>123456</code>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Toast Container ===================== -->
+  <div id="toastContainer"></div>
+
+  <!-- ===================== Scripts ===================== -->
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    // Jika sudah login, redirect
+    redirectIfLoggedIn();
+  </script>
+</body>
+</html>
